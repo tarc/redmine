@@ -81,7 +81,7 @@ module Redmine
         def branches
           return @branches if @branches
           @branches = []
-          cmd_args = %w|branch --no-color --verbose --no-abbrev|
+          cmd_args = %w|branch -a --no-color --verbose --no-abbrev|
           git_cmd(cmd_args) do |io|
             io.each_line do |line|
               branch_rev = line.match('\s*(\*?)\s*(.*?)\s*([0-9a-f]{40}).*$')
